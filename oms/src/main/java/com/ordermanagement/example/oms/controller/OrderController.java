@@ -5,9 +5,11 @@ import com.ordermanagement.example.oms.model.OrderItem;
 import com.ordermanagement.example.oms.service.OrderService;
 import com.ordermanagement.example.oms.service.OrderServiceFeign;
 import org.springframework.web.bind.annotation.*;
-
+/**
+ * RestController for creating Orders and OrderItems and Retrieving Orders and OrderItems
+ */
 @RestController
-@RequestMapping("oms/")
+@RequestMapping("/oms")
 public class OrderController {
 
     private final OrderService orderService;
@@ -17,23 +19,31 @@ public class OrderController {
         this.orderService = orderService;
         this.orderServiceFeign = orderServiceFeign;
     }
-
-    @GetMapping("getOrderInfo/{orderId}")
+    /**
+     * API to retrieve Orders based on @orderId
+     */
+    @GetMapping("/getOrderInfo/{orderId}")
     public OrderDetails getOrders(@PathVariable("orderId") String orderId){
         return orderService.getOrderItem(orderId);
     }
-
-    @PostMapping("createNewOrder")
+    /**
+     * API to create new Orders
+     */
+    @PostMapping("/createNewOrder")
     public OrderDetails createOrders(@RequestBody OrderDetails order){
         return orderService.createOrderItem(order);
     }
-
-    @GetMapping("getOrderItemInfo/{productCode}")
+    /**
+     * API to retrieve OrderItems based on @productCode
+     */
+    @GetMapping("/getOrderItemInfo/{productCode}")
     public OrderItem getOrderItems(@PathVariable("productCode") Integer productCode){
         return orderServiceFeign.fetchOrderItemDetails(productCode);
     }
-
-    @PostMapping("createNewOrderItem")
+    /**
+     * API to create new OrderItems
+     */
+    @PostMapping("/createNewOrderItem")
     public OrderItem createOrderItem(@RequestBody OrderItem orderItem){
         return orderServiceFeign.createOrderItem(orderItem);
     }

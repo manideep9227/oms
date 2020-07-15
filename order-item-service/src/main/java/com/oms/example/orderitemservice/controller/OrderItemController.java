@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
+/**
+ * RestController for creating OrderItems and Retreiving OrderItems based on productCode
+ */
 @RestController
-@RequestMapping("oms/")
+@RequestMapping("/oms")
 public class OrderItemController {
 
     private final OrderItemService orderItemService;
@@ -15,13 +18,17 @@ public class OrderItemController {
     public OrderItemController(OrderItemService orderItemService) {
         this.orderItemService = orderItemService;
     }
-
-    @GetMapping("getOrderItemInfo/{productCode}")
+    /**
+     * API to retrieve OrderItems based on @productCode
+     */
+    @GetMapping("/getOrderItemInfo/{productCode}")
     public OrderItem getOrderItems(@PathVariable("productCode") Integer productCode){
         return orderItemService.getOrderItem(productCode);
     }
-
-    @PostMapping("createNewOrderItem")
+    /**
+     * API to create new OrderItems
+     */
+    @PostMapping("/createNewOrderItem")
     public OrderItem createOrderItem(@RequestBody OrderItem orderItem){
         return orderItemService.createOrderItem(orderItem);
     }
