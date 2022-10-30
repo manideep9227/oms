@@ -1,7 +1,5 @@
 package com.ordermanagement.example.oms.service;
 
-import com.ordermanagement.example.oms.exception.OrderNotFoundException;
-import com.ordermanagement.example.oms.model.OrderDetails;
 import com.ordermanagement.example.oms.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 

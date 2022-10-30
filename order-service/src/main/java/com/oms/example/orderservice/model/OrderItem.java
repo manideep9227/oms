@@ -1,4 +1,4 @@
-package com.ordermanagement.example.oms.model;
+package com.oms.example.orderservice.model;
 
 
 import lombok.Data;
@@ -14,9 +14,9 @@ import javax.persistence.*;
 public class OrderItem {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer productCode;
+    private Integer itemId;
     @Column
-    private String productName;
+    private String itemName;
     @Column
     private int quantity;
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,9 +1,6 @@
 package com.ordermanagement.example.oms.controller;
 
-import com.ordermanagement.example.oms.model.OrderDetails;
-import com.ordermanagement.example.oms.model.OrderItem;
-import com.ordermanagement.example.oms.service.OrderService;
-import com.ordermanagement.example.oms.service.OrderServiceFeign;
+
 import org.springframework.web.bind.annotation.*;
 /**
  * RestController for creating Orders and OrderItems and Retrieving Orders and OrderItems
