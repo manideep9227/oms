@@ -1,7 +1,7 @@
 package com.oms.example.orderservice.service;
 
 import com.oms.example.orderservice.exception.OrderNotFoundException;
-import com.oms.example.orderservice.model.OrderItem;
+import com.oms.example.orderservice.model.FoodItem;
 import com.oms.example.orderservice.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,10 @@ public class OrderService {
         this.orderRepository = orderItemRepository;
     }
 
-    public OrderItem getOrderItem(Integer productCode){
+    public FoodItem getOrderItem(Integer productCode){
         return orderRepository.findById(productCode).orElseThrow(OrderNotFoundException::new);
     }
-    public OrderItem createOrderItem(OrderItem orderItem){
+    public FoodItem createOrderItem(FoodItem orderItem){
         return orderRepository.save(orderItem);
     }
 }

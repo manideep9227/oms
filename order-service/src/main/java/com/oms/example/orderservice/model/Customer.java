@@ -7,26 +7,27 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @ToString
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class FoodItem {
+public class Customer {
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
-    private String foodId;
+    private String customerId;
     @Column
-    private String name;
+    private String customerName;
     @Column
-    private Category category;
+    private String emailId;
     @Column
-    private Integer cost;
-    @Column
-    private Integer quantity;
+    private String address;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="orderId",nullable=false)
     private OrderDetails orderDetails;
+
 }
