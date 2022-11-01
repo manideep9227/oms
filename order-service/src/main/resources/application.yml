@@ -3,14 +3,11 @@ spring:
     name: OrderService
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost:9090/mem:omsdb;
+    url: jdbc:h2:mem:omsdb;
   jpa:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
-  h2:
-    console:
-      enabled: true
 logging:
   level:
     org:
@@ -18,3 +15,10 @@ logging:
         SQL=debug:
 server:
   port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+

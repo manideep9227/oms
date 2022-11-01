@@ -30,4 +30,7 @@ public class Customer {
     @JoinColumn(name="orderId",nullable=false)
     private OrderDetails orderDetails;
 
+    @OneToOne(mappedBy = "customer")
+    private OrderDetails order;
+
 }

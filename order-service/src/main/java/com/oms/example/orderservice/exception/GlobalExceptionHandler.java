@@ -11,4 +11,10 @@ public class GlobalExceptionHandler extends Exception {
     public ResponseEntity<Object> exception(OrderNotFoundException exception){
         return new ResponseEntity<>("Order Not Found", HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value=SystemException.class)
+    public RuntimeException exception(SystemException exception){
+        return new RuntimeException("Exception occurred"+exception.getMessage());
+    }
+
 }

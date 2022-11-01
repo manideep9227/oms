@@ -20,19 +20,18 @@ public class OrderDetails {
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String orderId;
-    @Column
-    @OneToOne(mappedBy = "customerId")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
     private Customer customer;
     @Column
     private Date orderDate;
     @Column
     private String deliverAddress;
-
-    @OneToMany(mappedBy = "orderDetails",fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<FoodItem> orderItemList;
-    @Column
-    private int totalOrders;
+    @Enumerated(EnumType.ORDINAL)
+    private OrderStatus orderStatus;
 
     @Override
     public boolean equals(Object o) {

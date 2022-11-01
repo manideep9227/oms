@@ -20,13 +20,21 @@ public class FoodItem {
     private String foodId;
     @Column
     private String name;
-    @Column
+    @Enumerated(EnumType.ORDINAL)
     private Category category;
     @Column
     private Integer cost;
     @Column
     private Integer quantity;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="orderId",nullable=false)
+    @ManyToOne
+    @JoinColumn(name="orderId")
+    @ToString.Exclude
     private OrderDetails orderDetails;
+
+    @ManyToOne
+    @JoinColumn(name="restaurantId")
+    @ToString.Exclude
+    private Restaurant restaurant;
+
+
 }
