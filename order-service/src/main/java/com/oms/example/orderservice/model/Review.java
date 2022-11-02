@@ -22,9 +22,4 @@ public class Review {
     private int rating;
     @Column
     private String feedback;
-    @ManyToOne
-    @JoinColumn(name="restaurantId")
-    @ToString.Exclude
-    private Restaurant restaurant;
-
 }

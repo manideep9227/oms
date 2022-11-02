@@ -19,19 +19,11 @@ public class Restaurant {
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
-
     @Column
     private String name;
     @Column
     private String address;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private List<Review> reviews;
-
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private List<FoodItem> menu;
 
 
 

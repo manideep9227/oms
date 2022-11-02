@@ -26,15 +26,4 @@ public class FoodItem {
     private Integer cost;
     @Column
     private Integer quantity;
-    @ManyToOne
-    @JoinColumn(name="orderId")
-    @ToString.Exclude
-    private OrderDetails orderDetails;
-
-    @ManyToOne
-    @JoinColumn(name="restaurantId")
-    @ToString.Exclude
-    private Restaurant restaurant;
-
-
 }

@@ -25,12 +25,4 @@ public class Customer {
     private String emailId;
     @Column
     private String address;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="orderId",nullable=false)
-    private OrderDetails orderDetails;
-
-    @OneToOne(mappedBy = "customer")
-    private OrderDetails order;
-
 }

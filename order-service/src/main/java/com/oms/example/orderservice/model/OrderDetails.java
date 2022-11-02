@@ -20,16 +20,14 @@ public class OrderDetails {
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String orderId;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
-    private Customer customer;
     @Column
     private Date orderDate;
     @Column
-    private String deliverAddress;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private List<FoodItem> orderItemList;
+    private String orderItem;
+    @Column
+    private int cost;
+    @Column
+    private int quantity;
     @Enumerated(EnumType.ORDINAL)
     private OrderStatus orderStatus;
 
